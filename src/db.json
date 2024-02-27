@@ -1,0 +1,53 @@
+{
+  "vehicles": [
+    {
+      "id": 1,
+      "make": "KTM",
+      "model": "390 Adventure",
+      "likes": 20,
+      "img": "ktm_390_adventure.jpg"
+    },
+    {
+      "id": 2,
+      "make": "Yamaha",
+      "model": "XT660Z Tenere",
+      "likes": 10,
+      "img": "xt_660z_tenere.jpg"
+    },
+    {
+      "id": 3,
+      "make": "BMW",
+      "model": "F650",
+      "likes": 0,
+      "img": "bmw_f650.jpg"
+    },
+    {
+      "id": 4,
+      "make": "Mini",
+      "model": "Clubman",
+      "likes": 100,
+      "img": "mini_clubman.jpg"
+    },
+    {
+      "id": 5,
+      "make": "Mini",
+      "model": "One",
+      "img": "mini_one.jpg",
+      "likes": 22
+    },
+    {
+      "id": 6,
+      "make": "Smart",
+      "model": "ForTwo",
+      "likes": 12,
+      "img": "smart_for2.jpg"
+    },
+    {
+      "id": 7,
+      "make": "Boeing",
+      "model": "747",
+      "likes": 120,
+      "img": "boeing_747.jpg"
+    }
+  ]
+}

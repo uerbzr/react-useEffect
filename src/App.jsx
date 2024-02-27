@@ -1,39 +1,32 @@
 import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { VEHICLES_ENDPOINT } from "./consts";
+import Vehicles from "./components/Vehicles";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    console.log("Running on empty array");
-  }, []);
+  const [vehicles, setVehicles] = useState([]);
 
   //[] is the dependency array - what should we listen to?
-
+  //if empty.. then we'll run this at least once..
   useEffect(() => {
-    console.log("Running on count", count);
-  }, [count]);
+    console.log(
+      "Running my effect only the first time the component is rendered; note: dependency array is empty []..."
+    );
+    fetch(VEHICLES_ENDPOINT)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("received data:", data);
+        console.log("setting new state....");
+        setVehicles(data);
+      });
+  }, []);
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>{count}</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count - 1)}>
-          - Decrement
-        </button>
-        <button onClick={() => setCount((count) => count + 1)}>
-          + Increment
-        </button>
-      </div>
+      <Vehicles
+        title={"Vehicle Voting"}
+        vehicles={vehicles}
+        setVehicles={setVehicles}
+      />
     </>
   );
 }
