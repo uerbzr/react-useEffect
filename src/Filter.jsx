@@ -6,12 +6,15 @@ function Filter({ vehicles, setVehicles }) {
   useEffect(() => {
     console.log("Applying filters:", filterText);
     const filtered = vehicles.filter((item) => {
-      if (filterText.length > 0)
-        return item.title.toLowerCase().includes(filterText.toLowerCase());
+      if (filterText.length > 0) {
+        return item.make.toLowerCase().includes(filterText.toLowerCase());
+      } else {
+        setVehicles(vehicles);
+      }
       return true;
     });
     setVehicles(filtered);
-  }, [vehicles, filterText]);
+  }, [filterText]);
 
   return (
     <div>
@@ -21,7 +24,7 @@ function Filter({ vehicles, setVehicles }) {
         value={filterText}
         onChange={(e) => setFilterText(e.target.value)}
       />
-      <button onClick={() => console.log("clicked filter")}>Filter</button>
+      <button onClick={() => console.log({ filterText })}>Filter</button>
     </div>
   );
 }
