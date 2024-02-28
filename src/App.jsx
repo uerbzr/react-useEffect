@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { VEHICLES_ENDPOINT } from "./consts";
 import Vehicles from "./components/Vehicles";
 import "./App.css";
-
+import Filter from "./Filter";
 function App() {
   const [vehicles, setVehicles] = useState([]);
 
@@ -22,6 +22,7 @@ function App() {
   }, []);
   return (
     <>
+      <Filter vehicles={vehicles} setVehicles={setVehicles} />
       <Vehicles
         title={"Vehicle Voting"}
         vehicles={vehicles}
