@@ -16,7 +16,7 @@ function Owner() {
         <>
           <h5>Owner: {data.name.first}</h5>
           <p>
-            <img src={data.picture.medium} />
+            <img src={data.picture.medium} className="zoom" />
           </p>
         </>
       ) : (
